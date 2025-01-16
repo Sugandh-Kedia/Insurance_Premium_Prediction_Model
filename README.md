@@ -93,8 +93,7 @@ AGE    SEX    BMI   SMOKER  REGION        CHARGES
 - **Comparison:** Predicted charges closely align with actual charges in the dataset.
 
 ![image](https://github.com/user-attachments/assets/d590cb23-c6bd-4c07-8c20-f1adf867e30e)
-![image](https://github.com/user-attachments/assets/bd5a8949-b34a-41c2-9555-7fb317a3a131)
-
+![image](https://github.com/user-attachments/assets/65ca2798-bd3a-4977-ad6f-442ed83e6971)
 
 ---
 
