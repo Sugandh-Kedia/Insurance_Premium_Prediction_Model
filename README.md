@@ -1,88 +1,100 @@
 # Insurance Premium Prediction Model
 
-This project uses a deep learning model to predict medical insurance charges based on various personal and demographic features such as age, sex, BMI, smoking status, region, and number of children. The model is built using TensorFlow and Keras, with data preprocessed and formatted for training a neural network.
+This project predicts medical insurance charges using a deep learning model built with TensorFlow and Keras. The model leverages personal and demographic data, such as age, sex, BMI, smoking status, region, and number of children, to estimate insurance premiums.
+
+---
 
 ## Project Overview
 
-The goal of this project is to predict medical insurance charges based on user features like age, sex, body mass index (BMI), smoking status, region, and the number of children. The dataset is used to train a neural network, which can then make predictions on unseen test data.
+The goal is to accurately predict insurance premiums based on a set of user attributes. The dataset used contains 3,630 rows for training and 492 rows for testing, encompassing features like age, sex, BMI, smoker status, region, and number of children.
 
-## Features Used
+---
 
-The model uses the following features to predict insurance charges:
-- `age`: The age of the individual.
-- `sex`: The gender of the individual (male or female).
-- `bmi`: The Body Mass Index of the individual.
-- `smoker`: Whether the individual is a smoker (`yes` or `no`).
-- `region`: The region where the individual resides (southwest, northeast, southeast, northwest).
-- `children`: The number of children or dependents.
+## Features
 
-## Data
+The model uses the following features:
+- **Age:** Numerical input representing the individual's age.
+- **Sex:** Categorical input (male/female), one-hot encoded.
+- **BMI:** Body Mass Index (numeric).
+- **Children:** Number of dependents (numeric).
+- **Smoker Status:** Categorical input (yes/no), one-hot encoded.
+- **Region:** Categorical input for geographic location (southwest, southeast, northwest, northeast), one-hot encoded.
 
-The dataset used in this project comes from a medical insurance dataset containing information on various factors that influence the cost of insurance premiums. The dataset is split into a training set and a test set:
-- **Training Data**: Used to train the neural network model.
-- **Test Data**: Used to test the accuracy and performance of the model on unseen data.
+---
 
-## Requirements
+## Workflow
 
-The following libraries are required to run this project:
-- pandas
-- numpy
-- tensorflow
-- matplotlib
+### 1. **Data Preprocessing**
+   - **Categorical Encoding:** Convert sex, smoker status, and region into one-hot encoded numerical formats.
+   - **Feature Scaling:** Prepare features for the neural network.
+   - **Dataset Splitting:** Separate data into training (`Train_Data.csv`) and testing (`Test_Data.csv`).
 
-You can install the required libraries using pip:
+### 2. **Model Architecture**
+   - Input layer with 11 features.
+   - Three hidden layers:
+     - 64 neurons in the first layer.
+     - 32 neurons in the second and third layers.
+     - ReLU activation for all hidden layers.
+   - Output layer with a single neuron for continuous predictions.
+   - Mean Absolute Error (MAE) used as the loss function.
+   - Adam optimizer employed for gradient descent.
 
-```bash
-pip install pandas numpy tensorflow matplotlib
-```
+### 3. **Training**
+   - Training is performed with early stopping based on validation loss, using a patience of 20 epochs.
+   - Model trains for a maximum of 300 epochs with validation on 10% of the training data.
 
-## How to Run the Code
+### 4. **Evaluation**
+   - Loss values are displayed for both training and validation datasets.
+   - Predictions are visualized against actual charges for comparison.
 
-1. **Download the Dataset:**
-   You will need the `Train_Data.csv` and `Test_Data.csv` files. Make sure the dataset is placed in the appropriate folder.
+### 5. **Prediction**
+   - The trained model predicts charges for unseen test data.
+   - Outputs include:
+     - Input details (age, sex, BMI, smoker status, region).
+     - Predicted insurance charges.
 
-2. **Data Preprocessing:**
-   The code begins by loading and cleaning the data. Categorical variables like sex, smoker status, and region are transformed using one-hot encoding into numerical format suitable for neural network training.
+---
 
-3. **Model Architecture:**
-   A deep neural network is built using Keras with the following architecture:
-   - Input layer: 11 input features (age, sex, BMI, smoker status, children, and region).
-   - 3 hidden layers with ReLU activation and 64, 32, and 32 neurons respectively.
-   - Output layer: A single neuron for the continuous prediction of insurance charges.
-   
-4. **Training:**
-   The model is trained using Mean Absolute Error (MAE) as the loss function and the Adam optimizer. Early stopping is used to avoid overfitting, and the model is trained for a maximum of 300 epochs.
+## How to Use
 
-5. **Evaluation and Prediction:**
-   The model is evaluated on the training dataset, and predictions are made on the test set. These predictions are displayed alongside the actual values for comparison.
+1. **Install Requirements:**
+   ```bash
+   pip install pandas numpy tensorflow matplotlib
+   ```
 
-## Example Output
+2. **Prepare Data:**
+   - Place `Train_Data.csv` and `Test_Data.csv` in the project directory.
+   - Ensure data formatting matches the sample dataset provided.
 
-Once the model is trained and tested, it will output predictions like this:
+3. **Run the Code:**
+   Execute the script to preprocess data, train the model, and generate predictions.
 
+4. **Visualize Results:**
+   - Training and validation loss curves.
+   - Comparisons between predicted and actual charges.
+
+---
+
+## Example Results
+
+**Sample Prediction Output:**
 ```
 AGE    SEX    BMI   SMOKER  REGION        CHARGES
-23     male   22    yes     southwest     predicted --> $ 2134
-45     female 30    no      northeast     predicted --> $ 4567
-...
+23     male   22    yes     southwest     predicted --> $2134
+45     female 30    no      northeast     predicted --> $4567
 ```
 
-The output will show predicted charges along with the corresponding inputs like age, sex, BMI, smoker status, and region.
+---
 
-## Results
+## Results & Performance
 
-- **Training Loss:** After training, the loss on the training set is displayed.
-- **Predictions:** The model makes predictions on the test data, and you can compare predicted insurance charges against the actual values.
+- **Training Loss:** The model achieves a low MAE, indicating good predictive capability.
+- **Visualization:** Loss curves show how the model generalizes to unseen data.
+- **Comparison:** Predicted charges closely align with actual charges in the dataset.
 
-## Conclusion
-
-This deep learning model effectively predicts medical insurance charges based on personal and demographic features. The model can be further improved by fine-tuning hyperparameters or adding more features.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
 ## Acknowledgments
 
-- The dataset used in this project was sourced from [insert data source here].
-- Thanks to the contributors of the Keras and TensorFlow libraries.
+- Dataset sourced from [insert source link].
+- Thanks to contributors of TensorFlow, Keras, and Python for enabling this project.
