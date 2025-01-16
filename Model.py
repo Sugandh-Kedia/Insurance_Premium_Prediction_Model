@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('../input/medical-insurance-dataset/Train_Data.csv')
+df = pd.read_csv('D:\Related to programing Language\Python\Train_Data.csv')
 print(df.shape)  # 3630 rows, 7 columns
 print(df.head())
 age = df['age']
@@ -63,6 +63,7 @@ print(train_y[:2])
 from tensorflow.keras.models import Sequential
 from tensorflow.keras import layers
 
+
 model = Sequential([
     layers.Dense(64, input_shape=[11], activation='relu'),
     # layers.Dropout(0.3),
@@ -112,7 +113,7 @@ plt.show()
 for i in range(20):
     print(f"{int(train_y[i]//1)} predicted --> {int(train_predictions[i][0]//1)},\t\tdifference --> { ( int(train_predictions[i][0]//1) - int(train_y[i]//1) ) }")
 
-df = pd.read_csv('../input/medical-insurance-dataset/Test_Data.csv')
+df = pd.read_csv('D:\Related to programing Language\Python\Test_Data.csv')
 
 print(df.shape)  # 492 rows, 6 columns
 print(df.head())
@@ -179,4 +180,3 @@ print("AGE\tSEX\tBMI\tSMOKER\t REGION\t\t  CHARGES")
 for i in range(20):
     print(f"{df['age'][i]//1}\t{df['sex'][i]}\t{df['bmi'][i]//1}\t{df['smoker'][i]}\t{df['region'][i]}", end='\t')
     print(f"predicted --> $ {int(predictions[i][0]//1)}")
-
