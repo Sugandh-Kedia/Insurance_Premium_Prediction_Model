@@ -1,4 +1,4 @@
-# Insurance_Premium_Prediction_Model
+# Insurance Premium Prediction Model
 
 This project uses a deep learning model to predict medical insurance charges based on various personal and demographic features such as age, sex, BMI, smoking status, region, and number of children. The model is built using TensorFlow and Keras, with data preprocessed and formatted for training a neural network.
 
