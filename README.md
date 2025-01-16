@@ -92,6 +92,10 @@ AGE    SEX    BMI   SMOKER  REGION        CHARGES
 - **Visualization:** Loss curves show how the model generalizes to unseen data.
 - **Comparison:** Predicted charges closely align with actual charges in the dataset.
 
+![image](https://github.com/user-attachments/assets/27c78e7f-382e-49ec-b675-ccd21101f80b)
+
+![image](https://github.com/user-attachments/assets/d5fbb80f-5b22-42d0-889b-6f158b6dbaad)
+
 ---
 
 ## Acknowledgments
