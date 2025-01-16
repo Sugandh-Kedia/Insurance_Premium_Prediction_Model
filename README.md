@@ -99,5 +99,4 @@ AGE    SEX    BMI   SMOKER  REGION        CHARGES
 
 ## Acknowledgments
 
-- Dataset sourced from [insert source link].
 - Thanks to contributors of TensorFlow, Keras, and Python for enabling this project.
